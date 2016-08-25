@@ -9,7 +9,9 @@ const onEntrance = (store) => () => store.dispatch(requestAllPokemon());
 const Root = ({store}) => (
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={PokemonIndexContainer} onEnter={onEntrance(store)}/>
+      <Route
+        path="/" component={PokemonIndexContainer} onEnter={onEntrance(store)}
+      />
     </Router>
   </Provider>
 );

@@ -1,15 +1,13 @@
 import React from 'react';
+import PokemonIndexItem from './pokemon_index_item';
 
 const PokemonIndex = (props) => {
   const pokemonLi =
     (props.pokemon.map( (pokemon, index) => (
-        <li key ={pokemon.name + index}>
-          <img src={pokemon.image_url}></img>
-          <p>{pokemon.name}</p>
-        </li>
+        <PokemonIndexItem key={pokemon.name + index} pokemon={pokemon} />
       )
     ));
-    
+
   return (
     <ul>
       {pokemonLi}
