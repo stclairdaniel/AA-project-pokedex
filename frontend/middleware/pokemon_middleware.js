@@ -1,5 +1,5 @@
-import { requestAllPokemon, POKEMON_CONSTANTS, receiveAllPokemon } from '../actions/pokemon_actions';
-import { fetchAllPokemon } from '../util/api_util';
+import { receivePokemon, POKEMON_CONSTANTS, receiveAllPokemon } from '../actions/pokemon_actions';
+import { fetchAllPokemon, fetchPokemon } from '../util/api_util';
 
 const PokemonMiddleware = ({ dispatch }) => next => action => {
   switch (action.type) {
@@ -7,6 +7,11 @@ const PokemonMiddleware = ({ dispatch }) => next => action => {
       fetchAllPokemon((data) => {
         dispatch(receiveAllPokemon(data));
       });
+      break;
+    case POKEMON_CONSTANTS.REQUEST_POKEMON:
+      fetchPokemon((data) => {
+        dispatch(receivePokemon(data));
+      }, action.pokemonID);
       break;
     default:
   }

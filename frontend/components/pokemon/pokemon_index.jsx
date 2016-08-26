@@ -11,6 +11,7 @@ const PokemonIndex = (props) => {
   return (
     <ul>
       {pokemonLi}
+      {props.children}
     </ul>
   );
 };
